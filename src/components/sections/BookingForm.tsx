@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -6,14 +6,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const bookingSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
   email: z.string().email("Enter a valid email"),
   phone: z.string().min(7, "Enter a valid phone number"),
   organisation: z.string().min(2, "Enter your school/organisation"),
-  date: z.string().min(1, "Select a preferred date"),
-  type: z.string().min(1, "Select a session type"),
+  saceNumber: z.string().optional(),
+  date: z.string().min(1, "Enter your preferred dates"),
+  type: z.string().min(1, "Select a service type"),
   message: z.string().optional(),
 });
 
@@ -25,6 +27,7 @@ const BookingForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<BookingFormData>({ resolver: zodResolver(bookingSchema) });
 
   const onSubmit = async (data: BookingFormData) => {
@@ -42,51 +45,71 @@ const BookingForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <Label htmlFor="name">Full name</Label>
-          <Input id="name" placeholder="Your name" {...register("name")} />
+          <Label htmlFor="name">Your Name *</Label>
+          <Input id="name" placeholder="Enter your full name" {...register("name")} />
           {errors.name && (
             <p className="text-xs text-destructive mt-1">{errors.name.message}</p>
           )}
         </div>
         <div>
-          <Label htmlFor="organisation">School/Organisation</Label>
-          <Input id="organisation" placeholder="e.g. Ubuntu High School" {...register("organisation")} />
-          {errors.organisation && (
-            <p className="text-xs text-destructive mt-1">{errors.organisation.message}</p>
-          )}
-        </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" placeholder="you@example.org" {...register("email")} />
+          <Label htmlFor="email">Email Address *</Label>
+          <Input id="email" placeholder="your.email@example.com" {...register("email")} />
           {errors.email && (
             <p className="text-xs text-destructive mt-1">{errors.email.message}</p>
           )}
         </div>
         <div>
-          <Label htmlFor="phone">Phone</Label>
-          <Input id="phone" placeholder="+27 ..." {...register("phone")} />
+          <Label htmlFor="phone">Phone Number</Label>
+          <Input id="phone" placeholder="Your phone number" {...register("phone")} />
           {errors.phone && (
             <p className="text-xs text-destructive mt-1">{errors.phone.message}</p>
           )}
         </div>
         <div>
-          <Label htmlFor="date">Preferred date</Label>
-          <Input id="date" type="date" {...register("date")} />
-          {errors.date && (
-            <p className="text-xs text-destructive mt-1">{errors.date.message}</p>
+          <Label htmlFor="organisation">School/Organization</Label>
+          <Input id="organisation" placeholder="Name of your school or organization" {...register("organisation")} />
+          {errors.organisation && (
+            <p className="text-xs text-destructive mt-1">{errors.organisation.message}</p>
           )}
         </div>
         <div>
-          <Label htmlFor="type">Session type</Label>
-          <Input id="type" placeholder="Evolve Session / Peer Circle / Workshop" {...register("type")} />
+          <Label htmlFor="type">Service Type *</Label>
+          <Controller
+            control={control}
+            name="type"
+            render={({ field }) => (
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger id="type">
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="initial_consultation">Initial Consultation</SelectItem>
+                  <SelectItem value="evolve_session">Evolve Session</SelectItem>
+                  <SelectItem value="peer_evolution_circle">Peer Evolution Circle</SelectItem>
+                  <SelectItem value="workshop">Workshop</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
           {errors.type && (
             <p className="text-xs text-destructive mt-1">{errors.type.message}</p>
           )}
         </div>
+        <div>
+          <Label htmlFor="date">Preferred Dates</Label>
+          <Input id="date" placeholder="Your preferred dates/times" {...register("date")} />
+          {errors.date && (
+            <p className="text-xs text-destructive mt-1">{errors.date.message}</p>
+          )}
+        </div>
+        <div className="md:col-span-2">
+          <Label htmlFor="saceNumber">SACE Number</Label>
+          <Input id="saceNumber" placeholder="e.g. SACE 1234567" {...register("saceNumber")} />
+        </div>
       </div>
       <div>
-        <Label htmlFor="message">Additional notes</Label>
-        <Textarea id="message" placeholder="Share context, goals, or questions" rows={5} {...register("message")} />
+        <Label htmlFor="message">Tell Us About Your Evolving Needs</Label>
+        <Textarea id="message" placeholder="Share what brings you here... What challenges are you facing? What kind of evolving support are you seeking?" rows={5} {...register("message")} />
       </div>
       <div>
         <Button type="submit" size="lg" disabled={isSubmitting}>
