@@ -14,6 +14,7 @@ import Work from "./pages/Work";
 import Booking from "./pages/Booking";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import EvolveSessions from "./pages/EvolveSessions";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/approach" element={<Approach />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/evolve-sessions" element={<EvolveSessions />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />

@@ -13,12 +13,9 @@ import { useState } from "react";
 const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Approach", to: "/approach" },
-  { label: "On-the-Ground", to: "/work" },
-  { label: "Testimonials", to: "/#testimonials" },
+  { label: "Evolve Sessions", to: "/evolve-sessions" },
   { label: "Gallery", to: "/#gallery" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
+  { label: "Get In Touch", to: "/contact" },
 ];
 
 export const SiteHeader = () => {
@@ -42,7 +39,7 @@ export const SiteHeader = () => {
   );
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-[var(--shadow-elegant)]">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2">
@@ -54,11 +51,6 @@ export const SiteHeader = () => {
         <NavLinks />
 
         <div className="flex items-center gap-2">
-          <Button asChild variant="default" size="sm" className="hidden md:inline-flex">
-            <Link to="/booking" aria-label="Book an Evolve Session">
-              <Calendar className="mr-2 h-4 w-4" /> Book an Evolve Session
-            </Link>
-          </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -66,7 +58,7 @@ export const SiteHeader = () => {
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-card/95 backdrop-blur-md border-l shadow-[var(--shadow-elegant)]">
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
@@ -77,18 +69,17 @@ export const SiteHeader = () => {
                     to={item.to}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-base ${isActive ? "text-primary" : "text-foreground/80"}`
+                      `block rounded-lg px-4 py-3 text-base shadow-sm transition ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      }`
                     }
                     end
                   >
                     {item.label}
                   </NavLink>
                 ))}
-                <Button asChild variant="default">
-                  <Link to="/booking" aria-label="Book an Evolve Session" onClick={() => setOpen(false)}>
-                    <Calendar className="mr-2 h-4 w-4" /> Book an Evolve Session
-                  </Link>
-                </Button>
               </div>
             </SheetContent>
           </Sheet>
