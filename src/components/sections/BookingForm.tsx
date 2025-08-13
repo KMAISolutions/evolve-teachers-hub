@@ -108,8 +108,8 @@ const BookingForm = () => {
         </div>
       </div>
       <div>
-        <Label htmlFor="message">Tell Us About Your Evolving Needs</Label>
-        <Textarea id="message" placeholder="Share what brings you here... What challenges are you facing? What kind of evolving support are you seeking?" rows={5} {...register("message")} />
+        <Label htmlFor="message">Tell Us About Your Healing Needs</Label>
+        <Textarea id="message" placeholder="Share what brings you here... What challenges are you facing? What kind of healing support are you seeking?" rows={5} {...register("message")} />
       </div>
       <div>
         <Button type="submit" size="lg" disabled={isSubmitting}>

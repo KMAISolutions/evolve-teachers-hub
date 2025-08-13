@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,11 +11,11 @@ import {
 import { useState } from "react";
 
 const navItems = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Evolve Sessions", to: "/evolve-sessions" },
-  { label: "Gallery", to: "/#gallery" },
-  { label: "Get In Touch", to: "/contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Evolve Sessions", href: "/#evolve-sessions" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Schedule A Session", href: "/#schedule" },
 ];
 
 export const SiteHeader = () => {
@@ -24,16 +24,13 @@ export const SiteHeader = () => {
   const NavLinks = () => (
     <nav className="hidden md:flex items-center gap-6 text-sm">
       {navItems.map((item) => (
-        <NavLink
-          key={item.to}
-          to={item.to}
-          className={({ isActive }) =>
-            `story-link ${isActive ? "text-primary" : "text-foreground/80"}`
-          }
-          end
+        <a
+          key={item.href}
+          href={item.href}
+          className={"story-link text-foreground/80 hover:text-primary"}
         >
           {item.label}
-        </NavLink>
+        </a>
       ))}
     </nav>
   );
@@ -64,21 +61,16 @@ export const SiteHeader = () => {
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
+                  <a
+                    key={item.href}
+                    href={item.href}
                     onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
-                      `block rounded-lg px-4 py-3 text-base shadow-sm transition ${
-                        isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                      }`
+                    className={
+                      "block rounded-lg px-4 py-3 text-base shadow-sm transition bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }
-                    end
                   >
                     {item.label}
-                  </NavLink>
+                  </a>
                 ))}
               </div>
             </SheetContent>

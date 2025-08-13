@@ -43,20 +43,16 @@ const SessionCard = ({
         <FeatureList items={features} />
       </div>
       <p className="mt-6 text-lg font-semibold text-primary">{price}</p>
-      <Button asChild className="bg-accent text-accent-foreground hover:opacity-90">
-        <Link to="/booking" aria-label="Book this service">Book This Service</Link>
-      </Button>
+      <div className="flex justify-center">
+        <Button asChild className="bg-accent text-accent-foreground hover:opacity-90">
+          <Link to="/#schedule" aria-label="Book this service">Book This Service</Link>
+        </Button>
+      </div>
     </CardContent>
   </Card>
 );
 
-export default function EvolveSessionsTabs() {
-  return (
-    <section className="container py-12 md:py-16" aria-labelledby="sessions-heading">
-      <div className="max-w-2xl mx-auto mb-8">
-        <h2 id="sessions-heading" className="text-3xl md:text-4xl font-bold mb-2">Evolve Sessions</h2>
-        <p className="text-muted-foreground">Choose the experience that fits your needs.</p>
-      </div>
+    <section id="evolve-sessions" className="container py-12 md:py-16" aria-label="Evolve Sessions">
 
       <Tabs defaultValue="individual" className="w-full">
         <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
