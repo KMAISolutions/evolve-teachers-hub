@@ -6,12 +6,9 @@ import SlideshowGallery from "@/components/sections/SlideshowGallery";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import palesaPortrait from "@/assets/palesa-portrait.jpg";
-
 const Index = () => {
   const title = "Teachers Evolve | Helping Teachers Evolve Beyond Burnout";
-  const description =
-    "Teachers Evolve supports educator well-being with on-the-ground Evolve Sessions, peer circles, and a human-centered approach.";
-
+  const description = "Teachers Evolve supports educator well-being with on-the-ground Evolve Sessions, peer circles, and a human-centered approach.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -21,16 +18,11 @@ const Index = () => {
     founder: {
       "@type": "Person",
       name: "Palesa Motaung",
-      jobTitle: "Founder & CEO",
+      jobTitle: "Founder & CEO"
     },
-    sameAs: [
-      "https://www.instagram.com/teachersevolve",
-      "https://www.linkedin.com/company/teachers-evolve",
-    ],
+    sameAs: ["https://www.instagram.com/teachersevolve", "https://www.linkedin.com/company/teachers-evolve"]
   };
-
-  return (
-    <main>
+  return <main>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -54,17 +46,9 @@ const Index = () => {
       <section id="about" className="container py-12 md:py-16">
         <div className="rounded-xl border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Palesa Motaung</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 mx-[19px] my-0 px-0 py-0">Meet Palesa Motaung</h2>
             <div className="flex flex-wrap gap-2 mb-6">
-              {[
-                "Founder & CEO • Teacher Support Specialist",
-                "Teacher Advocate",
-                "Teacher Leader",
-                "Teacher Coach",
-                "Experienced Educator",
-              ].map((tag) => (
-                <Badge key={tag} variant="outline">{tag}</Badge>
-              ))}
+              {["Founder & CEO • Teacher Support Specialist", "Teacher Advocate", "Teacher Leader", "Teacher Coach", "Experienced Educator"].map(tag => <Badge key={tag} variant="outline">{tag}</Badge>)}
             </div>
             <div className="space-y-4 text-foreground/90">
               <p>
@@ -79,12 +63,7 @@ const Index = () => {
             </div>
           </div>
           <div className="relative">
-            <img
-              src={palesaPortrait}
-              alt="Palesa Motaung portrait - Teachers Evolve founder"
-              loading="lazy"
-              className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover"
-            />
+            <img src={palesaPortrait} alt="Palesa Motaung portrait - Teachers Evolve founder" loading="lazy" className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover" />
           </div>
         </div>
       </section>
@@ -111,8 +90,6 @@ const Index = () => {
           </Card>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default Index;
