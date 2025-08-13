@@ -52,6 +52,8 @@ const SessionCard = ({
   </Card>
 );
 
+export default function EvolveSessionsTabs() {
+  return (
     <section id="evolve-sessions" className="container py-12 md:py-16" aria-label="Evolve Sessions">
 
       <Tabs defaultValue="individual" className="w-full">
