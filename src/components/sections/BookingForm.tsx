@@ -7,14 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 const bookingSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
   email: z.string().email("Enter a valid email"),
   phone: z.string().min(7, "Enter a valid phone number"),
   organisation: z.string().min(2, "Enter your school/organisation"),
   saceNumber: z.string().optional(),
-  date: z.string().min(1, "Enter your preferred dates"),
+  date: z.date({ required_error: "Select a preferred date" }),
   type: z.string().min(1, "Select a service type"),
   message: z.string().optional(),
 });
@@ -96,11 +100,43 @@ const BookingForm = () => {
           )}
         </div>
         <div>
-          <Label htmlFor="date">Preferred Dates</Label>
-          <Input id="date" placeholder="Your preferred dates/times" {...register("date")} />
-          {errors.date && (
-            <p className="text-xs text-destructive mt-1">{errors.date.message}</p>
+        <Label htmlFor="date">Preferred Dates</Label>
+        <Controller
+          control={control}
+          name="date"
+          render={({ field }) => (
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-full justify-start text-left font-normal",
+                    !field.value && "text-muted-foreground"
+                  )}
+                >
+                  {field.value ? (
+                    format(field.value as Date, "PPP")
+                  ) : (
+                    <span>Pick a date</span>
+                  )}
+                  <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  selected={field.value as Date | undefined}
+                  onSelect={field.onChange}
+                  initialFocus
+                  className={cn("p-3 pointer-events-auto")}
+                />
+              </PopoverContent>
+            </Popover>
           )}
+        />
+        {errors.date && (
+          <p className="text-xs text-destructive mt-1">{String(errors.date.message)}</p>
+        )}
         </div>
         <div className="md:col-span-2">
           <Label htmlFor="saceNumber">SACE Number</Label>
@@ -111,7 +147,7 @@ const BookingForm = () => {
         <Label htmlFor="message">Tell Us About Your Healing Needs</Label>
         <Textarea id="message" placeholder="Share what brings you here... What challenges are you facing? What kind of healing support are you seeking?" rows={5} {...register("message")} />
       </div>
-      <div>
+      <div className="flex justify-center">
         <Button type="submit" size="lg" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Request Booking"}
         </Button>

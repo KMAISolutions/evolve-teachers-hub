@@ -48,9 +48,6 @@ const Index = () => {
         </blockquote>
       </section>
 
-      <div id="evolve-sessions">
-        <EvolveSessionsTabs />
-      </div>
 
       <section id="about" className="container py-12 md:py-16">
         <div className="rounded-lg border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-6 items-center">
@@ -68,6 +65,10 @@ const Index = () => {
           </ul>
         </div>
       </section>
+
+      <div id="evolve-sessions">
+        <EvolveSessionsTabs />
+      </div>
 
       <SlideshowGallery />
 

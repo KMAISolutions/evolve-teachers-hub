@@ -56,6 +56,10 @@ export default function EvolveSessionsTabs() {
   return (
     <section id="evolve-sessions" className="container py-12 md:py-16" aria-label="Evolve Sessions">
 
+      <div className="max-w-2xl mx-auto mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">Available Services</h2>
+      </div>
+
       <Tabs defaultValue="individual" className="w-full">
         <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
           <TabsTrigger value="individual">Individual Sessions</TabsTrigger>
