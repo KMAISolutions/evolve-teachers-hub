@@ -8,21 +8,21 @@
   :root {
     /* Neutrals */
     --background: 0 0% 100%;
-    --foreground: 222 50% 6%;
+    --foreground: 0 0% 7%;
 
     /* Surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222 50% 6%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 50% 6%;
+    --popover-foreground: 0 0% 7%;
 
     /* Brand palette */
-    --primary: 190 70% 35%;           /* Rich teal */
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 69% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 152 28% 92%;         /* Sage tint for soft surfaces */
-    --secondary-foreground: 160 22% 25%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 7%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 16% 45%;
@@ -35,7 +35,7 @@
 
     --border: 214 28% 90%;
     --input: 214 28% 90%;
-    --ring: 190 70% 35%;
+    --ring: 142 69% 35%;
 
     --radius: 0.75rem;
 

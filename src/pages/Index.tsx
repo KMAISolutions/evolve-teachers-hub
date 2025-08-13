@@ -4,6 +4,8 @@ import EvolveSessionsTabs from "@/components/sections/EvolveSessionsTabs";
 import BookingForm from "@/components/sections/BookingForm";
 import SlideshowGallery from "@/components/sections/SlideshowGallery";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import palesaPortrait from "@/assets/palesa-portrait.jpg";
 
 const Index = () => {
   const title = "Teachers Evolve | Helping Teachers Evolve Beyond Burnout";
@@ -50,19 +52,40 @@ const Index = () => {
 
 
       <section id="about" className="container py-12 md:py-16">
-        <div className="rounded-lg border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-6 items-center">
+        <div className="rounded-xl border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-semibold mb-2">On-the-Ground Work</h3>
-            <p className="text-muted-foreground">
-              Palesa visits schools, sits with educators, listens deeply, and facilitates safe spaces for connection, networking, and growth.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Palesa Motaung</h2>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {[
+                "Founder & CEO • Teacher Support Specialist",
+                "Teacher Advocate",
+                "Teacher Leader",
+                "Teacher Coach",
+                "Experienced Educator",
+              ].map((tag) => (
+                <Badge key={tag} variant="outline">{tag}</Badge>
+              ))}
+            </div>
+            <div className="space-y-4 text-foreground/90">
+              <p>
+                Palesa Motaung founded Teachers Evolve as a healing sanctuary for educators experiencing burnout, emotional fatigue, and the weight of systemic challenges. With over 12 years of educational leadership, she witnessed the silent suffering of teachers and felt called to create something deeper than traditional professional development.
+              </p>
+              <p>
+                Her approach is deeply personal and humanistic. Palesa doesn't just deliver workshops— she visits schools, sits with teachers in circles, listens to their stories, and creates safe spaces for authentic healing. Her work addresses the whole person: emotional wounds, mental exhaustion, and the social barriers that make teaching feel isolating.
+              </p>
+              <p>
+                Through her on-the-ground healing sessions, Palesa has personally supported over 500 educators, helping them process trauma, build resilience, and rediscover the joy that brought them to teaching. Her holistic, socio-psychological approach has transformed not just individual teachers, but entire school communities.
+              </p>
+            </div>
           </div>
-          <ul className="text-sm text-muted-foreground grid grid-cols-2 gap-2">
-            <li>Gauteng</li>
-            <li>North West</li>
-            <li>Mpumalanga</li>
-            <li>Limpopo</li>
-          </ul>
+          <div className="relative">
+            <img
+              src={palesaPortrait}
+              alt="Palesa Motaung portrait - Teachers Evolve founder"
+              loading="lazy"
+              className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover"
+            />
+          </div>
         </div>
       </section>
 
