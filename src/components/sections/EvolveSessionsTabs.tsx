@@ -61,11 +61,11 @@ export default function EvolveSessionsTabs() {
       </div>
 
       <Tabs defaultValue="individual" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 h-auto gap-1 md:gap-2 p-1 md:p-2">
-          <TabsTrigger value="individual" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">Individual Sessions</TabsTrigger>
-          <TabsTrigger value="group" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">Group Circles</TabsTrigger>
-          <TabsTrigger value="school" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">School-Wide Programs</TabsTrigger>
-        </TabsList>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 p-1 md:p-2 bg-muted rounded-lg">
+          <TabsTrigger value="individual" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base data-[state=active]:bg-background data-[state=active]:text-foreground">Individual Sessions</TabsTrigger>
+          <TabsTrigger value="group" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base data-[state=active]:bg-background data-[state=active]:text-foreground">Group Circles</TabsTrigger>
+          <TabsTrigger value="school" className="col-span-2 md:col-span-1 py-2 px-2 text-xs md:py-3 md:px-4 md:text-base data-[state=active]:bg-background data-[state=active]:text-foreground">School-Wide Programs</TabsTrigger>
+        </div>
 
         <TabsContent value="individual">
           <SessionCard
