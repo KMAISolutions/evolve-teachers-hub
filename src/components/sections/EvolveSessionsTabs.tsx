@@ -61,10 +61,10 @@ export default function EvolveSessionsTabs() {
       </div>
 
       <Tabs defaultValue="individual" className="w-full">
-        <TabsList className="grid w-full h-auto gap-1 md:gap-2 p-1 md:p-2 grid-cols-2 md:grid-cols-3">
-          <TabsTrigger value="individual" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">Individual Sessions</TabsTrigger>
-          <TabsTrigger value="group" className="py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">Group Circles</TabsTrigger>
-          <TabsTrigger value="school" className="col-span-2 md:col-span-1 py-2 px-2 text-xs md:py-3 md:px-4 md:text-base">School-Wide Programs</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto gap-2 p-2">
+          <TabsTrigger value="individual" className="py-3 px-4 text-sm md:text-base">Individual Sessions</TabsTrigger>
+          <TabsTrigger value="group" className="py-3 px-4 text-sm md:text-base">Group Circles</TabsTrigger>
+          <TabsTrigger value="school" className="py-3 px-4 text-sm md:text-base">School-Wide Programs</TabsTrigger>
         </TabsList>
 
         <TabsContent value="individual">
