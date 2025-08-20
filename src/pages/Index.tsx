@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import palesaPortrait from "@/assets/palesa-portrait.jpg";
 const Index = () => {
-  const title = "Teachers Evolve | Helping Teachers Evolve Beyond Burnout";
+  const title = "Teachers Evolve | Helping Teachers Evolve Beyond Expectations";
   const description = "Teachers Evolve supports educator well-being with on-the-ground Evolve Sessions, peer circles, and a human-centered approach.";
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,11 +45,8 @@ const Index = () => {
 
       <section id="about" className="container py-12 md:py-16">
         <div className="rounded-xl border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative">
-            <img src={palesaPortrait} alt="Palesa Motaung portrait - Teachers Evolve founder" loading="lazy" className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover" />
-          </div>
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 mx-[19px] my-0 px-0 py-0">Meet Palesa Motaung</h2>
+          <div className="md:order-1 order-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Palesa Motaung</h2>
             <div className="flex flex-wrap gap-2 mb-6">
               {["Founder & CEO • Teacher Support Specialist", "Teacher Advocate", "Teacher Leader", "Teacher Coach", "Experienced Educator"].map(tag => <Badge key={tag} variant="outline">{tag}</Badge>)}
             </div>
@@ -64,6 +61,9 @@ const Index = () => {
                 Through her on-the-ground healing sessions, Palesa has personally supported over 500 educators, helping them process trauma, build resilience, and rediscover the joy that brought them to teaching. Her holistic, socio-psychological approach has transformed not just individual teachers, but entire school communities.
               </p>
             </div>
+          </div>
+          <div className="relative md:order-2 order-1">
+            <img src={palesaPortrait} alt="Palesa Motaung portrait - Teachers Evolve founder" loading="lazy" className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover" />
           </div>
         </div>
       </section>
