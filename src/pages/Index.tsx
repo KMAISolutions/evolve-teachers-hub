@@ -45,6 +45,9 @@ const Index = () => {
 
       <section id="about" className="container py-12 md:py-16">
         <div className="rounded-xl border bg-card p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative">
+            <img src={palesaPortrait} alt="Palesa Motaung portrait - Teachers Evolve founder" loading="lazy" className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover" />
+          </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 mx-[19px] my-0 px-0 py-0">Meet Palesa Motaung</h2>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -61,9 +64,6 @@ const Index = () => {
                 Through her on-the-ground healing sessions, Palesa has personally supported over 500 educators, helping them process trauma, build resilience, and rediscover the joy that brought them to teaching. Her holistic, socio-psychological approach has transformed not just individual teachers, but entire school communities.
               </p>
             </div>
-          </div>
-          <div className="relative">
-            <img src={palesaPortrait} alt="Palesa Motaung portrait - Teachers Evolve founder" loading="lazy" className="w-full h-auto rounded-xl shadow-[var(--shadow-elegant)] object-cover" />
           </div>
         </div>
       </section>

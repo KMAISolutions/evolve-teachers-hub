@@ -13,7 +13,7 @@ const Hero = () => {
           <div className="max-w-3xl mx-auto animate-fade-in">
             <span className="inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground mb-4">A platform for educator well-being & growth</span>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-              Helping Teachers <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Evolve</span> Beyond Burnout
+              Helping Teachers <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Evolve</span> Beyond Expectations
             </h1>
             <p className="text-base md:text-lg text-muted-foreground mb-6">
               Teachers Evolve is a human-centered, socio-psychological approach to educator support — meeting teachers where they are, on the ground, and building pathways to sustainable growth.

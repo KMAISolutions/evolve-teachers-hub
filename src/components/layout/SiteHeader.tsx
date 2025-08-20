@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Menu, Calendar } from "lucide-react";
+import { Menu, Calendar, Home, User, Heart, Camera, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,11 +11,11 @@ import {
 import { useState } from "react";
 
 const navItems = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Evolve Sessions", href: "/#evolve-sessions" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Schedule A Session", href: "/#schedule" },
+  { label: "Home", href: "/#home", icon: Home },
+  { label: "About", href: "/#about", icon: User },
+  { label: "Evolve Sessions", href: "/#evolve-sessions", icon: Heart },
+  { label: "Gallery", href: "/#gallery", icon: Camera },
+  { label: "Schedule A Session", href: "/#schedule", icon: Clock },
 ];
 
 export const SiteHeader = () => {
@@ -66,9 +66,10 @@ export const SiteHeader = () => {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={
-                      "block rounded-lg px-4 py-3 text-base shadow-sm transition bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      "flex items-center gap-3 rounded-lg px-4 py-3 text-base shadow-sm transition bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }
                   >
+                    <item.icon className="h-5 w-5" />
                     {item.label}
                   </a>
                 ))}

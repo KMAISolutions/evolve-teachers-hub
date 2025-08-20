@@ -45,7 +45,12 @@ const SiteFooter = () => {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Teachers Evolve. All rights reserved.
+        <div className="mb-2">
+          © {new Date().getFullYear()} Teachers Evolve. All rights reserved.
+        </div>
+        <div>
+          Powered By: <a href="https://www.kwenamai.co.za" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Kwena Moloto A.I Solutions</a>
+        </div>
       </div>
     </footer>
   );

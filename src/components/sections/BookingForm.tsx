@@ -9,7 +9,7 @@ import { toast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { Calendar as CalendarIcon } from "lucide-react";
+import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 const bookingSchema = z.object({
@@ -19,6 +19,7 @@ const bookingSchema = z.object({
   organisation: z.string().min(2, "Enter your school/organisation"),
   saceNumber: z.string().optional(),
   date: z.date({ required_error: "Select a preferred date" }),
+  time: z.string().min(1, "Please select a preferred time"),
   type: z.string().min(1, "Select a service type"),
   message: z.string().optional(),
 });
@@ -137,6 +138,28 @@ const BookingForm = () => {
         {errors.date && (
           <p className="text-xs text-destructive mt-1">{String(errors.date.message)}</p>
         )}
+        </div>
+        <div>
+          <Label htmlFor="time">Preferred Time</Label>
+          <Controller
+            control={control}
+            name="time"
+            render={({ field }) => (
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger id="time">
+                  <SelectValue placeholder="Select preferred time" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="morning">Morning (8:00 - 12:00)</SelectItem>
+                  <SelectItem value="afternoon">Afternoon (12:00 - 17:00)</SelectItem>
+                  <SelectItem value="evening">Evening (17:00 - 20:00)</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.time && (
+            <p className="text-xs text-destructive mt-1">{errors.time.message}</p>
+          )}
         </div>
         <div className="md:col-span-2">
           <Label htmlFor="saceNumber">SACE Number</Label>

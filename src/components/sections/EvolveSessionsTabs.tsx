@@ -44,7 +44,7 @@ const SessionCard = ({
       </div>
       <p className="mt-6 text-lg font-semibold text-primary">{price}</p>
       <div className="flex justify-center">
-        <Button asChild className="bg-accent text-accent-foreground hover:opacity-90">
+        <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
           <Link to="/#schedule" aria-label="Book this service">Book This Service</Link>
         </Button>
       </div>
@@ -61,10 +61,10 @@ export default function EvolveSessionsTabs() {
       </div>
 
       <Tabs defaultValue="individual" className="w-full">
-        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
-          <TabsTrigger value="individual">Individual Sessions</TabsTrigger>
-          <TabsTrigger value="group">Group Circles</TabsTrigger>
-          <TabsTrigger value="school">School-Wide Programs</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto gap-2 p-2">
+          <TabsTrigger value="individual" className="py-3 px-4 text-sm md:text-base">Individual Sessions</TabsTrigger>
+          <TabsTrigger value="group" className="py-3 px-4 text-sm md:text-base">Group Circles</TabsTrigger>
+          <TabsTrigger value="school" className="py-3 px-4 text-sm md:text-base">School-Wide Programs</TabsTrigger>
         </TabsList>
 
         <TabsContent value="individual">
